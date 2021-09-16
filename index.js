@@ -52,6 +52,7 @@ class Counter {
    * @param {number} initialNumber - the initial state of the count
    */
   constructor(initialNumber) {
+    this.count = initialNumber;
     // ✨ initialize whatever properties are needed
   }
 
@@ -68,6 +69,11 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
+    if (this.count > 0) {
+      return this.count--;
+    }
+    return this.count;
+
     // ✨ implement
   }
 }
@@ -77,6 +83,8 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
+    this.seasons = ["summer", "fall", "winter", "spring"];
+    this.currentSeason = 0;
     // ✨ initialize whatever properties are needed
   }
 
@@ -93,6 +101,13 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
+    const result = this.seasons[this.currentSeason];
+    if (this.currentSeason === 3) {
+      this.currentSeason = 0;
+    } else {
+      ++this.currentSeason;
+    }
+    return result;
     // ✨ implement
   }
 }
@@ -107,6 +122,7 @@ class Car {
   constructor(name, tankSize, mpg) {
     this.odometer = 0; // car initilizes with zero miles
     this.tank = tankSize; // car initiazes full of gas
+    this.tankSize = tankSize;
     // ✨ initialize whatever other properties are needed
   }
 
